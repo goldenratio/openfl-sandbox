@@ -10,7 +10,7 @@ import openfl.display.Sprite;
 class Main extends Sprite
 {
 
-    private var _list:Vector<MyCircle> =  new Vector<MyCircle>();
+    private var _list:Vector<EggHead> =  new Vector<EggHead>();
 
     public function new ()
     {
@@ -35,7 +35,7 @@ class Main extends Sprite
     {
         for (i in 0...20)
         {
-            var gfx:MyCircle = new MyCircle();
+            var gfx:EggHead = new EggHead();
             gfx.x = Math.random() * stage.stageWidth - 100;
             gfx.y = Math.random() * stage.stageHeight - 100;
             stage.addChild(gfx);

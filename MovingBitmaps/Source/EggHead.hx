@@ -12,21 +12,22 @@ import openfl.Assets;
  * ...
  * @author Makubex
  */
-class MyCircle extends Bitmap
+class EggHead extends Bitmap
 {
 
 	private var _direction:Int = 1;
 	private var _speed:Point = new Point(4, 4);
+
 	public function new() 
 	{
-		super();
+        super(Assets.getBitmapData ("assets/egghead.png"));
 
-		this.bitmapData = Assets.getBitmapData ("assets/egghead.png");
 		this.cacheAsBitmap = true;
 		
 		this.alpha = 0;
 		this.scaleX = 0.1;
 		this.scaleY = 0.1;
+
 		if (Math.floor(Math.random() * 10) > 5)
 		{
 			_direction = -1;
