@@ -3,11 +3,19 @@
 	
 	<meta title="MovingBitmaps" package="com.example.movingbitmaps" version="1.0.0" company="Company Name" />
 	<app main="Main" path="Export" file="MovingBitmaps" />
-	
-	<source path="Source" />
-	
-	<haxelib name="openfl" />
-	
+
+    <window background="#000000" fps="60" hardware="true" vsync="true" />
+
+    <window width="800" height="480" if="web" />
+    <window width="600" height="300" if="desktop" />
+    <window orientation="portrait" width="0" height="0" vsync="false" antialiasing="0" if="mobile" />
+
+    <!-- classpath, haxe libs -->
+    <source path="Source" />
+    <haxelib name="openfl" />
+    <haxelib name="actuate" />
+
+    <!-- assets -->
 	<assets path="Assets" rename="assets" exclude="openfl.svg" />
 	<icon path="Assets/openfl.svg" />
 	
