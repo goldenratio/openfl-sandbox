@@ -15,11 +15,11 @@ class Main extends Sprite
     /**
      * Constructor
     **/
-	public function new ()
+    public function new ()
     {
-		super ();
+        super ();
         addEventListener(Event.ADDED_TO_STAGE, addedToStage, false);
-	}
+    }
 
 
     private function addedToStage(event:Event):Void
