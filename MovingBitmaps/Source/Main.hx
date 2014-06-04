@@ -27,6 +27,7 @@ class Main extends Sprite
 
     private function init():Void
     {
+        trace("click to add Bitmaps!");
         stage.addEventListener(Event.ENTER_FRAME, onEnterFrameHandler);
         stage.addEventListener(MouseEvent.CLICK, onMouseClick);
     }
