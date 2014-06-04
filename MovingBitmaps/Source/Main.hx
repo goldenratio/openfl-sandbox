@@ -12,9 +12,6 @@ class Main extends Sprite
 
     private var _list:Vector<MyCircle> =  new Vector<MyCircle>();
 
-    /**
-     * Constructor
-    **/
     public function new ()
     {
         super ();
