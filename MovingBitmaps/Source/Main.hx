@@ -1,16 +1,16 @@
 package;
 
-import openfl.Lib;
 import openfl.events.MouseEvent;
-import openfl.Vector;
 import openfl.events.Event;
+import EggHead;
+import openfl.Vector;
 import openfl.display.Sprite;
 
 
 class Main extends Sprite
 {
 
-    private var _list:Vector<EggHead> =  new Vector<EggHead>();
+    private var _list:Vector<EggHead> = new Vector<EggHead>();
 
     public function new ()
     {
@@ -49,7 +49,8 @@ class Main extends Sprite
     {
         for (circle in _list)
         {
-            circle.update();
+            var egg:EggHead = cast circle;
+            egg.update();
         }
     }
 
