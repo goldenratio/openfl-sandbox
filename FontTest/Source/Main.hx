@@ -1,6 +1,8 @@
 package;
 
 
+import openfl.text.TextFieldAutoSize;
+import openfl.events.Event;
 import openfl.Assets;
 import openfl.text.Font;
 import openfl.text.AntiAliasType;
