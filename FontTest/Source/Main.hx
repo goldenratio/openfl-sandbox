@@ -10,9 +10,6 @@ import openfl.text.TextField;
 import openfl.text.TextFormat;
 import openfl.display.Sprite;
 
-#if js
-@:font("Assets/Handycandy.ttf") class HandyCandyFont extends Font {}
-#end
 
 class Main extends Sprite
 {
@@ -31,17 +28,9 @@ class Main extends Sprite
 
     private function init():Void
     {
-        #if js
-        Font.registerFont(HandyCandyFont);
-        #end
-
         var font:Font = Assets.getFont("assets/Handycandy.ttf");
 
-        #if js
-        var format:TextFormat = new TextFormat("Handycandy", 40, 0xffffff);
-        #else
         var format:TextFormat = new TextFormat(font.fontName, 40, 0xffffff);
-        #end
 
         var tf:TextField = new TextField();
         tf.defaultTextFormat = format;
@@ -53,7 +42,6 @@ class Main extends Sprite
         tf.text = "Hello OpenFL!!";
 
         stage.addChild(tf);
-
     }
 	
 }

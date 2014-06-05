@@ -17,5 +17,7 @@
 	<assets path="Assets" rename="assets" exclude="openfl.svg" />
 	<icon path="Assets/openfl.svg" />
 
+    <!-- fonts for html5 works only using DOM -->
+    <haxedef name="dom" if="web"/>
 
 </project>
