@@ -21,8 +21,6 @@ class EggHead extends Bitmap
 	public function new() 
 	{
         super(Assets.getBitmapData ("assets/egghead.png"));
-
-		this.cacheAsBitmap = true;
 		
 		this.alpha = 0;
 		this.scaleX = 0.1;
