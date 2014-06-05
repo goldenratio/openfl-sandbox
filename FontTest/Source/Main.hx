@@ -1,8 +1,6 @@
 package;
 
 
-import openfl.text.TextFieldAutoSize;
-import openfl.events.Event;
 import openfl.Assets;
 import openfl.text.Font;
 import openfl.text.AntiAliasType;
@@ -17,11 +15,11 @@ import openfl.display.Sprite;
 class Main extends Sprite
 {
 
-	public function new ()
+    public function new ()
     {
-		super ();
+        super ();
         addEventListener(Event.ADDED_TO_STAGE, addedToStage, false);
-	}
+    }
 
     private function addedToStage(event:Event):Void
     {
