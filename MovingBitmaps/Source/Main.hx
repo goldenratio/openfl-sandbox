@@ -30,9 +30,17 @@ class Main extends Sprite
         trace("click to add Bitmaps!");
         stage.addEventListener(Event.ENTER_FRAME, onEnterFrameHandler);
         stage.addEventListener(MouseEvent.CLICK, onMouseClick);
+
+        populateEggHeads();
     }
 
     private function onMouseClick(event:MouseEvent):Void
+    {
+        populateEggHeads();
+
+    }
+
+    private function populateEggHeads():Void
     {
         for (i in 0...20)
         {
@@ -43,7 +51,6 @@ class Main extends Sprite
 
             _list.push(gfx);
         }
-
     }
 
     private function onEnterFrameHandler(event:Event):Void
