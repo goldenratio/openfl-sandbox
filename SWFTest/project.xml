@@ -11,11 +11,12 @@
     <window orientation="portrait" width="0" height="0" vsync="false" antialiasing="0" if="mobile" />
 
 	<source path="Source" />
-	
+
 	<haxelib name="openfl" />
 	<haxelib name="swf" />
 
 	<assets path="Assets" rename="assets" exclude="openfl.svg|*.fla" />
+    <!-- Make sure you do not do type="swf", don't define the type and it will automatically assign it to swflite when targeting HTML5. //-->
     <library id="swfLib" path="Assets/library.swf" />
 
 	<icon path="Assets/openfl.svg" />
