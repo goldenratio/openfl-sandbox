@@ -7,8 +7,11 @@
 	<source path="Source" />
 	
 	<haxelib name="openfl" />
-	
-	<assets path="Assets" rename="assets" exclude="openfl.svg" />
+	<haxelib name="swf" />
+
+	<assets path="Assets" rename="assets" exclude="openfl.svg;*.fla;*.swf" />
+    <library id="swfLib" path="Assets/library.swf" type="swf" />
+
 	<icon path="Assets/openfl.svg" />
 	
 </project>
