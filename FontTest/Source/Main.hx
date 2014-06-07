@@ -1,6 +1,8 @@
 package;
 
 
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
 import openfl.events.TimerEvent;
 import openfl.utils.Timer;
 import openfl.Vector;
@@ -61,9 +63,22 @@ class Main extends Sprite
         tf.text = "Hello openFL!!";
 
         var sprite:Sprite = new Sprite();
+
+        #if js
         tf.x = -(tf.width * 0.5);
         tf.y = -(tf.height * 0.5);
         sprite.addChild(tf);
+        #else
+        var bmd:BitmapData = new BitmapData(Std.int(tf.width), Std.int(tf.height), true, 0x00000000);
+        bmd.draw(tf);
+
+        var bitmap:Bitmap = new Bitmap(bmd);
+        bitmap.x = -(bitmap.width * 0.5);
+        bitmap.y = -(bitmap.height * 0.5);
+        bitmap.smoothing = true;
+        sprite.addChild(bitmap);
+        #end
+
         sprite.x = 300 + Math.random() * (stage.stageWidth - 600);
         sprite.y = 100 + Math.random() * (stage.stageHeight - 200);
         sprite.scaleX = 0.2;
@@ -79,23 +94,28 @@ class Main extends Sprite
         for(i in 0..._list.length)
         {
             var sprite:Sprite = _list[i];
-            sprite.scaleX += 0.01;
-            sprite.scaleY += 0.01;
+            if(sprite.scaleX <= 4)
+            {
+                sprite.scaleX += 0.01;
+                sprite.scaleY += 0.01;
 
-            if(sprite.scaleX < 2 && sprite.alpha < 1)
-            {
-                sprite.alpha += 0.01;
+                if(sprite.scaleX < 2 && sprite.alpha < 1)
+                {
+                    sprite.alpha += 0.01;
+                }
+
+                if(sprite.scaleX >= 2)
+                {
+                    sprite.alpha -= 0.01;
+                }
+                if(sprite.scaleX >= 4)
+                {
+                    _list.splice(i, 1);
+                    stage.removeChild(sprite);
+                    break;
+                }
             }
 
-            if(sprite.scaleX >= 2)
-            {
-                sprite.alpha -= 0.01;
-            }
-            if(sprite.scaleX >= 4)
-            {
-               _list.splice(i, 1);
-                stage.removeChild(sprite);
-            }
         }
     }
 	
