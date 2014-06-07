@@ -1,6 +1,9 @@
 package;
 
 
+import openfl.events.TimerEvent;
+import openfl.utils.Timer;
+import openfl.Vector;
 import openfl.text.TextFieldAutoSize;
 import openfl.events.Event;
 import openfl.Assets;
@@ -10,9 +13,11 @@ import openfl.text.TextField;
 import openfl.text.TextFormat;
 import openfl.display.Sprite;
 
-
 class Main extends Sprite
 {
+
+    private var _list:Vector<Sprite> = new Vector<Sprite>();
+    private var _font:Font = Assets.getFont("assets/Starjedi.ttf");
 
     public function new ()
     {
@@ -28,9 +33,24 @@ class Main extends Sprite
 
     private function init():Void
     {
-        var font:Font = Assets.getFont("assets/Handycandy.ttf");
+        addText();
+        addEventListener(Event.ENTER_FRAME, onEnterFrame);
 
-        var format:TextFormat = new TextFormat(font.fontName, 40, 0xffffff);
+        var timer:Timer = new Timer(1000);
+        timer.addEventListener(TimerEvent.TIMER, onTimerLoop);
+        timer.start();
+
+    }
+
+    private function onTimerLoop(event:TimerEvent):Void
+    {
+        addText();
+    }
+
+    private function addText():Void
+    {
+        var color:UInt = Math.floor(Math.random() * 0xffffff);
+        var format:TextFormat = new TextFormat(_font.fontName, 160, color);
 
         var tf:TextField = new TextField();
         tf.defaultTextFormat = format;
@@ -38,10 +58,45 @@ class Main extends Sprite
         tf.autoSize = TextFieldAutoSize.LEFT;
         tf.antiAliasType = AntiAliasType.ADVANCED;
         tf.selectable = false;
+        tf.text = "Hello openFL!!";
 
-        tf.text = "Hello OpenFL!!";
+        var sprite:Sprite = new Sprite();
+        tf.x = -(tf.width * 0.5);
+        tf.y = -(tf.height * 0.5);
+        sprite.addChild(tf);
+        sprite.x = 300 + Math.random() * (stage.stageWidth - 600);
+        sprite.y = 100 + Math.random() * (stage.stageHeight - 200);
+        sprite.scaleX = 0.2;
+        sprite.scaleY = 0.2;
+        sprite.alpha = 0;
+        stage.addChild(sprite);
 
-        stage.addChild(tf);
+        _list.push(sprite);
+    }
+
+    private function onEnterFrame(event:Event):Void
+    {
+        for(i in 0..._list.length)
+        {
+            var sprite:Sprite = _list[i];
+            sprite.scaleX += 0.01;
+            sprite.scaleY += 0.01;
+
+            if(sprite.scaleX < 2 && sprite.alpha < 1)
+            {
+                sprite.alpha += 0.01;
+            }
+
+            if(sprite.scaleX >= 2)
+            {
+                sprite.alpha -= 0.01;
+            }
+            if(sprite.scaleX >= 4)
+            {
+               _list.splice(i, 1);
+                stage.removeChild(sprite);
+            }
+        }
     }
 	
 }

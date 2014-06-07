@@ -6,8 +6,8 @@
 
     <window background="#000000" fps="60" hardware="true" vsync="true" />
 
-    <window width="800" height="480" if="web" />
-    <window width="600" height="300" if="desktop" />
+    <window width="0" height="0" if="web" />
+    <window width="600" height="600" if="desktop" />
     <window orientation="portrait" width="0" height="0" vsync="false" antialiasing="0" if="mobile" />
 
 	<source path="Source" />
