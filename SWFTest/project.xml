@@ -3,14 +3,21 @@
 	
 	<meta title="SWFTest" package="com.example.swftest" version="1.0.0" company="Company Name" />
 	<app main="Main" path="Export" file="SWFTest" />
-	
+
+    <window background="#000000" fps="40" hardware="true" vsync="true" />
+
+    <window width="0" height="0" if="web" />
+    <window width="600" height="600" if="desktop" />
+    <window orientation="portrait" width="0" height="0" vsync="false" antialiasing="0" if="mobile" />
+
 	<source path="Source" />
-	
+
 	<haxelib name="openfl" />
 	<haxelib name="swf" />
 
-	<assets path="Assets" rename="assets" exclude="openfl.svg;*.fla;*.swf" />
-    <library id="swfLib" path="Assets/library.swf" type="swf" />
+	<assets path="Assets" rename="assets" exclude="openfl.svg|*.fla" />
+    <!-- Make sure you do not do type="swf", don't define the type and it will automatically assign it to swflite when targeting HTML5. //-->
+    <library id="swfLib" path="Assets/library.swf" />
 
 	<icon path="Assets/openfl.svg" />
 	
