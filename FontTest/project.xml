@@ -8,7 +8,7 @@
 
     <window width="0" height="0" if="web" />
     <window width="600" height="600" if="desktop" />
-    <window orientation="portrait" width="0" height="0" vsync="false" antialiasing="0" if="mobile" />
+    <window orientation="landscape" width="0" height="0" vsync="false" antialiasing="0" if="mobile" />
 
 	<source path="Source" />
 	
