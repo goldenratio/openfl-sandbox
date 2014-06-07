@@ -31,7 +31,7 @@ class Main extends Sprite
     {
         var flowerMC:MovieClip = Assets.getMovieClip("swfLib:Flower");
         flowerMC.x = (stage.stageWidth - flowerMC.width) * 0.5;
-        flowerMC.y = (stage.stageWidth - flowerMC.height) * 0.5;
+        flowerMC.y = (stage.stageHeight - flowerMC.height) * 0.5;
         stage.addChild(flowerMC);
     }
 	
