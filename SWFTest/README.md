@@ -1,0 +1,1 @@
+NB! It doesn't seem to work with HTML5 target.
