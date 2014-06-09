@@ -6,7 +6,7 @@
 
     <window background="#000000" fps="40" hardware="true" vsync="true" />
 
-    <window width="0" height="0" if="web" />
+    <window width="600" height="400" if="web" />
     <window width="600" height="600" if="desktop" />
     <window orientation="portrait" width="0" height="0" vsync="false" antialiasing="0" if="mobile" />
 
